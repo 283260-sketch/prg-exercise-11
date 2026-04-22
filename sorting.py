@@ -29,6 +29,7 @@ def bubble_sort(seznam_cisel):
 
     numbers_copy = seznam_cisel.copy()
     n = len(numbers_copy)
+
     plt.ion()
     plt.show()
 
@@ -38,21 +39,22 @@ def bubble_sort(seznam_cisel):
 
             index_highlight1 = j
             index_highlight2 = j + 1
-            colors = ["steelblue"] * len(values)
+            colors = ["steelblue"] * len(numbers_copy)
             colors[index_highlight1] = "tomato"
             colors[index_highlight2] = "tomato"
             plt.clf()
-            plt.bar(range(len(values)), values, color=colors)
+            plt.bar(range(len(numbers_copy)), numbers_copy, color=colors)
             plt.title("Bubble Sort")
             plt.pause(0.1)
 
             if numbers_copy[j] > numbers_copy[j+1]:
                 numbers_copy[j], numbers_copy[j+1] = numbers_copy[j+1], numbers_copy[j]
 
-        plt.ioff()
-        plt.show()
+    plt.ioff()
+    plt.show()
 
     return numbers_copy
+
 
 
 def main():
@@ -79,13 +81,20 @@ def main():
     print()
     print(f"Kontrola (původní seznam stále stejný): {random_list[:6]}...")
 
-    data = [15, 3, 9, 21, 5, 12, 1, 8]
-    bubble_sort_visualized(data)
-    print()
-    print({bubble_sort(data)})
+
 
 if __name__ == "__main__":
     main()
+print()
+print("--- Metoda sort ---")
+my_list = [3, 8, 1, 2, 32]
+my_list.sort()
+print(my_list)   # [1, 2, 3, 8, 32]
+print()
 
-
+print("--- funkce sorted ---")
+my_list = [3, 8, 1, 2, 32]
+new_list = sorted(my_list)
+print(my_list)   # [3, 8, 1, 2, 32]   ← beze změny
+print(new_list)  # [1, 2, 3, 8, 32]
 
